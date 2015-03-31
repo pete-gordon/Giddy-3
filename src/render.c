@@ -5692,7 +5692,7 @@ BOOL render_init( void )
   glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST );
   glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, 256, 256, 0, GL_RGBA, GL_UNSIGNED_BYTE, screentex );
 
-  SDL_WM_SetCaption( "Giddy 3: Reasonably Special Edition v1.5", 0 );
+  SDL_WM_SetCaption( "Giddy 3: RSE v1.5 - http://www.retroleum.co.uk/giddy3/", 0 );
 
   return TRUE;
 }
