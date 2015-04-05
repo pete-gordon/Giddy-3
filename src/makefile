@@ -79,7 +79,7 @@ endif
 # Haiku
 ifeq ($(PLATFORM),haiku)
 LFLAGS += `sdl-config --libs` -lGL -lSDL_mixer
-CFLAGS += `sdl-config --cflags`
+CFLAGS += `sdl-config --cflags` -DNO_SDL_GLEXT
 endif
 
 # Pandora
