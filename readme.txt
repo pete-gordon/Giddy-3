@@ -18,7 +18,7 @@ Area3-5 / Completion - Daniel Johansson. Title tune - Lee Bevan.
 You run this game at your own risk - no responsibility for
 any damage to hardware or software can be taken by the author.
 
-http://www.retroleum.co.uk/giddy3
+https://blog.retroleum.co.uk/giddy3/
 
 
       To run in a correct and proper manner, Giddy3 Requires:
@@ -125,7 +125,7 @@ A. The special edition is written in C. Pete had to do it because
 
 Q. Why doesn't it go fullscreen when I tell it to?!??!
 A. If yer on Windows, quit and restart for that to work. Its all to
-   do with SDLsvand stuff.
+   do with SDLs and stuff.
 
 
 ----------------------------------------------------------------------
