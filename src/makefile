@@ -97,6 +97,9 @@ ifeq (x86_64,$(shell uname -m))
 BASELIBDIR := lib64
 CFLAGS += -m64
 LFLAGS += -m64
+else ifeq (aarch64,$(shell uname -m))
+BASELIBDIR := lib
+CFLAGS += -DNO_SDL_GLEXT=1
 else
 BASELIBDIR := lib
 CFLAGS += -m32

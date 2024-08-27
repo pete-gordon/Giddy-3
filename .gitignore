@@ -33,3 +33,13 @@
 
 # Dependencies
 *.d
+
+blocks.bin
+sprites.bin
+psprites.bin
+bmp_de_bmp
+texts.bin
+titlestuff.bin
+victorystuff.bin
+giddy3
+
