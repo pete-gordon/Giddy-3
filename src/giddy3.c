@@ -18,6 +18,7 @@
 #include <EGL/egl.h>
 #else
 #ifndef __APPLE__
+#define GL_GLEXT_LEGACY /* Prevents gl.h from including glext.h */
 #include <GL/gl.h>
 #else
 #include <OpenGL/gl.h>
