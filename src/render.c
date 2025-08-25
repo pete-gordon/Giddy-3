@@ -18,6 +18,7 @@
 #include <EGL/egl.h>
 #else
 #ifndef __APPLE__
+#define GL_GLEXT_LEGACY /* Prevents gl.h from including glext.h */
 #include <GL/gl.h>
 #else
 #include <OpenGL/gl.h>
@@ -836,7 +837,11 @@ BOOL load_packed( char *filename, Uint8 *buf, int len )
     return FALSE;
   }
 
-  fread( pb, plen, 1, f );
+  if (fread(pb, plen, 1, f) != 1) {
+    free(pb);
+    fclose(f);
+    return FALSE;
+  }
   fclose( f );
 
   s=d=0;
@@ -872,7 +877,10 @@ BOOL load_blocks( char *filename )
   f = fopen( filename, "rb" );
   if( !f ) return FALSE;
 
-  fread( blocks, 16*16*4, 256, f );
+  if (fread(blocks, 16*16*4, 256, f) != 256) {
+    fclose(f);
+    return FALSE;
+  }
   fclose( f );
 
   glBindTexture( GL_TEXTURE_2D, tex[BLOCKTEX]);
@@ -893,7 +901,10 @@ BOOL load_sprites( char *filename )
   f = fopen( filename, "rb" );
   if( !f ) return FALSE;
 
-  fread( sprites, 256*256*4, 1, f );
+  if (fread(sprites, 256*256*4, 1, f) != 1) {
+    fclose(f);
+    return FALSE;
+  }
   fclose( f );
 
   for( i=0; i<256*256*4; i+=4 )
@@ -929,7 +940,10 @@ BOOL load_puzzlesprites( char *filename )
   f = fopen( filename, "rb" );
   if( !f ) return FALSE;
 
-  fread( psprites, 256*256*4, 1, f );
+  if (fread(psprites, 256*256*4, 1, f) != 1) {
+    fclose(f);
+    return FALSE;
+  }
   fclose( f );
 
   for( i=0; i<256*256*4; i+=4 )
@@ -965,7 +979,10 @@ BOOL load_globalsprites( void )
   f = fopen( "hats/sprites.bin", "rb" );
   if( !f ) return FALSE;
 
-  fread( gsprites, 256*256*4, 1, f );
+  if (fread(gsprites, 256*256*4, 1, f) != 1) {
+    fclose(f);
+    return FALSE;
+  }
   fclose( f );
 
   for( i=0; i<256*256*4; i+=4 )
@@ -995,7 +1012,10 @@ BOOL load_globalsprites( void )
   f = fopen( "hats/texts.bin", "rb" );
   if( !f ) return FALSE;
 
-  fread( texts, 256*128*4, 1, f );
+  if (fread(texts, 256*128*4, 1, f) != 1) {
+    fclose(f);
+    return FALSE;
+  }
   fclose( f );
 
   glBindTexture( GL_TEXTURE_2D, tex[TEXTTEX] );
